@@ -18,7 +18,7 @@ public class FileUtils {
     static Logger log = LoggerFactory.getLogger(FileUtils.class);
     private static final String URI = "https://student-chart.herokuapp.com";
     private static Scraping scraping = Scraping.getInstance();
-    private String fileName = String.format("%s\\fbmoll\\students.xml", System.getProperty("user.home"));
+    private static String fileName = String.format("%s\\fbmoll\\students.xml", System.getProperty("user.home"));
     private static List<Student> studentList = new ArrayList<>();
 
 
@@ -68,7 +68,7 @@ public class FileUtils {
     /**
      * Realiza el scrapping, marshalling, unmarshalling y el contenido devuelto es puesto en una lista.
      */
-    public void getData() {
+    public static void getData() {
         Training training = new Training();
         List<Student> studentList = getDataScraping();
         training.setFormations(studentList);

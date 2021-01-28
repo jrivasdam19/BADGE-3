@@ -9,7 +9,8 @@ public class QResources {
 
     @GET
     public String hello() {
-        FileUtils.getDataScraping();
+        //FileUtils.getDataScraping();
+        FileUtils.getData();
         return "Hello RESTEasy";
     }
 
