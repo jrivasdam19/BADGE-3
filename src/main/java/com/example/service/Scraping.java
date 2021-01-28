@@ -21,8 +21,8 @@ public class Scraping {
     private static Scraping instance = null;
     private static WebDriver webDriver;
     //    private static String uri = "https://student-chart.herokuapp.com/";
-//    private static String driver = "webdriver.chrome.driver";
-//    private static String driverEXE = "C:\\geckodriver-master\\chromedriver.exe";
+    //private static String driver = "webdriver.chrome.driver";
+    //private static String driverEXE = "C:\\WebDriver\\bin\\chromedriver.exe";
     private static ArrayList<Student> studentList = new ArrayList<>();
     private static String education[] = {"FP", "FPD"};
     private static String tagListClick[] = {"#rc-tabs-0-tab-subjAccesoDatos", ".ant-pagination-item-2",
@@ -49,7 +49,7 @@ public class Scraping {
     public static List<Student> clickData(String uri) {
         try {
 
-//            System.setProperty(driver, driverEXE);
+            //System.setProperty(driver, driverEXE);
             webDriver = new ChromeDriver();
             webDriver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
             webDriver.get(uri);
