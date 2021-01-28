@@ -1,0 +1,54 @@
+WEB
+https://htmlunit.sourceforge.io/ -NO USADO
+https://www.selenium.dev/documentation/es/webdriver/driver_requirements/
+https://www.selenium.dev/documentation/es/webdriver/waits/
+https://stackoverflow.com/questions/14356148/intellij-idea-specify-datasource-for-jpa-validation
+https://www.jetbrains.com/help/idea/managing-data-sources.html#db_adjust_view_by_filters
+https://stackoverrun.com/es/q/11032565
+https://www.youtube.com/watch?v=XPbBIpK8a9o&ab_channel=pildorasinformaticas
+https://mkyong.com/hibernate/hibernate-error-collection-has-neither-generic-type-or-onetomany-targetentity/
+https://stackoverflow.com/questions/3325387/infinite-recursion-with-jackson-json-and-hibernate-jpa-issue
+
+QUARKUS
+https://quarkus.io/guides/datasource
+https://stackoverflow.com/questions/62728512/can-i-run-a-selenium-driver-with-quarkus
+https://www.youtube.com/watch?v=IRN4VvENDBY&ab_channel=ApuntesdeJava
+https://quarkus.io/guides/hibernate-orm-panache
+https://www.youtube.com/watch?v=r0wTt2arwqs&ab_channel=ViniciusFerraz
+https://www.youtube.com/watch?v=aKsxaCiP7bE&ab_channel=RedHatDeveloper
+https://quarkus.io/guides/hibernate-search-orm-elasticsearch    RELACION BIDIRECCIONAL
+https://www.youtube.com/watch?v=0rVxJxlexYI&ab_channel=Quarkusio   MONGO
+https://docs.jboss.org/resteasy/docs/3.0.17.Final/userguide/html_single/index.html ANOTACIONES
+https://stackoverflow.com/questions/62728512/can-i-run-a-selenium-driver-with-quarkus
+
+                            <dependency>
+                            <groupId>org.apache.maven.plugins</groupId>
+                            <artifactId>maven-failsafe-plugin</artifactId>
+                            <version>3.0.0-M5</version>
+                            <type>maven-plugin</type>
+                          </dependency>
+                          <dependency>
+                            <groupId>org.apache.maven.plugins</groupId>
+                            <artifactId>maven-surefire-plugin</artifactId>
+                            <version>3.0.0-M5</version>
+                            <type>maven-plugin</type>
+                          </dependency>
+
+SELECT * FROM education;
+select * from education INNER JOIN student on education.code= student.fk_education;
+select * from education INNER JOIN student on education.code= student.fk_education where education.code='FP';
+
+CODE
+System.setProperty("webdriver.gecko.driver", "C:\\geckodriver-master\\geckodriver.exe");
+     WebDriver driver;
+     driver = new FirefoxDriver();
+     driver.get("https://student-chart.herokuapp.com");
+     Thread.sleep(3000);
+     driver.quit();**/
+
+    /**        System.setProperty("webdriver.chrome.driver", "C:\\geckodriver-master\\chromedriver.exe");
+     WebDriver driver = new ChromeDriver();
+     driver.get("https://student-chart.herokuapp.com");
+     Thread.sleep(3000);
+     driver.quit();
+

@@ -1,0 +1,60 @@
+package com.example.controller;
+
+import com.example.data.Student;
+import com.example.data.StudentRepository;
+import com.example.helper.Scrapping;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+import javax.inject.Inject;
+import javax.ws.rs.*;
+
+import java.util.List;
+import java.util.Optional;
+
+import static javax.ws.rs.core.MediaType.APPLICATION_JSON;
+
+@Path("/student")
+@Produces(APPLICATION_JSON)
+public class StudentResource {
+
+    static Logger log = LoggerFactory.getLogger(Scrapping.class);
+    @Inject
+    private StudentRepository studentRepository;
+
+    @GET
+    @Path("/hellos")
+    public String hello() {
+        return "hello";
+    }
+
+    @GET
+    @Path("/getAll")
+    public Iterable<Student> getAll() {
+        try {
+            return studentRepository.listAll();
+        } catch (Exception e) {
+            log.error("getStudent()", e);
+            return null;
+        }
+    }
+
+    @GET
+    @Path("/getCount")
+    public long getCount() {
+        return studentRepository.count();
+    }
+
+    @GET
+    @Path("/getId{id}")
+    public Student getId(@PathParam("id")  @DefaultValue("1") long primaryKey) {
+        try {
+            return studentRepository.findById(primaryKey);
+        } catch (Exception e) {
+            log.error("getOneStudent()", e);
+            return null;
+        }
+    }
+
+
+}
