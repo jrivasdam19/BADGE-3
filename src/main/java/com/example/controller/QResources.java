@@ -1,5 +1,6 @@
 package com.example.controller;
 
+import com.example.data.Student;
 import com.example.service.FileUtils;
 
 import javax.ws.rs.*;
@@ -8,12 +9,8 @@ import javax.ws.rs.*;
 public class QResources {
 
     @GET
-    public String hello() {
-        //FileUtils.getDataScraping();
-        FileUtils.getData();
-        return "Hello RESTEasy";
+    public  Iterable<Student>  getAll() {
+        return  FileUtils.getData();
     }
-
-
 
 }

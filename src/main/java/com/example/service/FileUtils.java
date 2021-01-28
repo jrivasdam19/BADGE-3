@@ -19,8 +19,6 @@ public class FileUtils {
     private static final String URI = "https://student-chart.herokuapp.com";
     private static Scraping scraping = Scraping.getInstance();
     private static String fileName = String.format("%s\\fbmoll\\students.xml", System.getProperty("user.home"));
-    private static List<Student> studentList = new ArrayList<>();
-
 
     public static <T extends Serializable> File marshallContent(String path, T classX) {
         File file = new File(path);
@@ -68,13 +66,14 @@ public class FileUtils {
     /**
      * Realiza el scrapping, marshalling, unmarshalling y el contenido devuelto es puesto en una lista.
      */
-    public static void getData() {
+    public static List<Student> getData() {
         Training training = new Training();
         List<Student> studentList = getDataScraping();
         training.setFormations(studentList);
         FileUtils.marshallContent(fileName, training);
         Training training1 = FileUtils.unmarshallContent(fileName, Training.class);
-        studentList = training1.getFormations();
+        List<Student> studentList0 = training1.getFormations();
+        return studentList0;
     }
 
 }
