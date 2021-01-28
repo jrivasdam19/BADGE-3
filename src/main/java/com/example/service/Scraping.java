@@ -1,5 +1,6 @@
-package com.example.helper;
+package com.example.service;
 
+import com.example.data.Student;
 import org.apache.commons.lang3.RegExUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.openqa.selenium.By;
@@ -14,28 +15,28 @@ import java.util.List;
 import java.util.concurrent.TimeUnit;
 import java.util.regex.Pattern;
 
-public class Scrapping {
-    static Logger log = LoggerFactory.getLogger(Scrapping.class);
+public class Scraping {
+    static Logger log = LoggerFactory.getLogger(Scraping.class);
 
-    private static Scrapping instance = null;
+    private static Scraping instance = null;
     private static WebDriver webDriver;
     private static String uri = "https://student-chart.herokuapp.com/";
     private static String driver = "webdriver.chrome.driver";
     private static String driverEXE = "C:\\geckodriver-master\\chromedriver.exe";
-    private static ArrayList<StudentScrapping> studentList = new ArrayList<>();
+    private static ArrayList<Student> studentList = new ArrayList<>();
     private static String education[] = {"FP", "FPD"};
     private static String tagListClick[] = {"#rc-tabs-0-tab-subjAccesoDatos", ".ant-pagination-item-2",
             ".ant-pagination-item-3", "rc-tabs-0-tab-subjSAD Dual", ".ant-pagination-item-link"};
     private static String elementTagList[] = {".ant-table-row.ant-table-row-level-0", "ant-pagination-item-link"};
 
-    public static Scrapping getInstance() {
+    public static Scraping getInstance() {
         if (instance == null) {
-            instance = new Scrapping();
+            instance = new Scraping();
         }
         return instance;
     }
 
-    private Scrapping() {
+    private Scraping() {
         super();
     }
 
@@ -43,9 +44,9 @@ public class Scrapping {
      * Hace scrapping a un página en particular.
      *
      * @param uri página para hacer srappping.
-     * @return lista de StudentScrapping.
+     * @return lista de Student.
      */
-    public static List<StudentScrapping> clickData(String uri) {
+    public static List<Student> clickData(String uri) {
         try {
 
             System.setProperty(driver, driverEXE);
@@ -108,7 +109,7 @@ public class Scrapping {
         emptyValue = "-1";
 
         for (WebElement e : data) {
-            StudentScrapping student = new StudentScrapping();
+            Student student = new Student();
 
             if (fp.equals(education[0])) {
                 log.info("fp");

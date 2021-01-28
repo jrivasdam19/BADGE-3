@@ -1,4 +1,5 @@
-package com.example.helper;
+package com.example.service;
+import com.example.data.Student;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -15,7 +16,7 @@ import java.util.List;
 public class FileUtils {
     static Logger log = LoggerFactory.getLogger(FileUtils.class);
     private static final String URI = "https://student-chart.herokuapp.com";
-    private static Scrapping scrapping = Scrapping.getInstance();
+    private static Scraping scraping = Scraping.getInstance();
 
     public static <T extends Serializable> File marshallContent(String path, T classX) {
         File file = new File(path);
@@ -48,16 +49,16 @@ public class FileUtils {
         }
         return null;
     }
-    public static List<StudentScrapping> getDataScrapping() {
-        List<StudentScrapping> studentScrappingList = new ArrayList<>();
+    public static List<Student> getDataScraping() {
+        List<Student> studentList = new ArrayList<>();
         try {
-            studentScrappingList = scrapping.clickData(URI);
-            System.out.println(studentScrappingList.get(1));
-            System.out.println(studentScrappingList.get(1).getNickName());
+            studentList = scraping.clickData(URI);
+            System.out.println(studentList.get(1));
+            System.out.println(studentList.get(1).getNickName());
         } catch (Exception e) {
             log.error("getDataScrapping()", e);
         }
-        return studentScrappingList;
+        return studentList;
     }
 
 }

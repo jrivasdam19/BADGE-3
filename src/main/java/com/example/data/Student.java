@@ -2,7 +2,7 @@ package com.example.data;
 
 import java.io.Serializable;
 
-public class StudentScrapping implements Serializable {
+public class Student implements Serializable {
 
     private String education;
     private String nickName;
