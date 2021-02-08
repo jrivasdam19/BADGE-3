@@ -11,7 +11,6 @@ import java.util.List;
 @XmlAccessorType(XmlAccessType.FIELD)
 public class Training implements Serializable {
 
-//    @XmlElementWrapper(name = "formations")
     @XmlElement(name = "formation")
     private List<Student>formations;
 

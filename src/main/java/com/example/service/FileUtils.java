@@ -1,4 +1,5 @@
 package com.example.service;
+
 import com.example.data.Student;
 
 import com.example.data.Training;
@@ -51,6 +52,7 @@ public class FileUtils {
         }
         return null;
     }
+
     public static List<Student> getDataScraping() {
         List<Student> studentList = new ArrayList<>();
         try {
